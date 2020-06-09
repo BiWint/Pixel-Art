@@ -15,22 +15,6 @@ public class touchForAnimation : MonoBehaviour
 
     private void Update()
     {
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
-
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos))
-                    {
-                        isScreenTouched = true;
-                    }
-                    break;
-            }
-        }
-
         if (Input.GetMouseButtonDown(0))
         {
             _animator.SetBool("isScreenTouched", true);
@@ -42,6 +26,5 @@ public class touchForAnimation : MonoBehaviour
     {
         _animator.SetBool("isScreenTouched", false);
     }
-        
 
 }
